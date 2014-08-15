@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html lang="en" ng-app>
+ <html lang="en" ng-app="superheroApp">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -25,37 +25,36 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="SuperherosController">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header"></li>
               <li><a href="../../tasks/part0/index.html">Part 0</a></li>
-              <li class="active"><a href="../../tasks/part1/index.html">Part 1</a></li>
+              <li><a href="../../tasks/part1/index.html">Part 1</a></li>
               <li><a href="../../tasks/part2/index.html">Part 2</a></li>
               <li><a href="../../tasks/part3/index.html">Part 3</a></li>
-              <li><a href="../../tasks/part4/index.html">Part 4</a></li>
+              <li class="active"><a href="../../tasks/part4/index.html">Part 4</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-            <h1> ngRepeat, filters </h1>
+            <h1> Routing </h1>
             <br/>
             <ol>
-              <li>Add at least one superhero, then display all of them</li>
-              <li>Enable filtering superheros based on 'search' input </li>
+              <li>Angular-route.js is missing (../../assets/js/angular-route.min.js)</li>
+              <li>Make it work for catwoman </li>
             </ol><!--/ol-->
-            <input type="text" ng-model="searchForHeros" placeholder="Enter hero name!" />
           </div><!--/row-->
-          <div class="row-fluid" ng-init="superheros=['Batman', 'Spiderman', 'Superman']"><!-- SOMETHING IS MISSING HERE -->
-            <div class="span3" ng-repeat=''> <!-- SOMETHING IS MISSING HERE -->
-              <h2 ng-bind='hero'></h2>
-              <!--<h2>{{ hero }}</h2>-->
-              <img ng-src="../../assets/images/{{ hero | downcase }}.jpg" alt="{{hero}}" />
-            </div><!--/span-->
-          </div><!--/row-->
+          <div ng-view="">
+          </div>
+          <ol>
+            <li><a href="#">Show superman</a></li>
+            <li><a href="#batman">Show batman</a></li>
+            <li><a href="#catwoman">Show catwoman</a></li>
+          <ol>
         </div><!--/span-->
       </div><!--/row-->
       <hr>
@@ -65,6 +64,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../assets/js/angular.min.js"></script>
+    <!-- SOMETHING IS MISSING HERE -->
+    <script src="../../assets/js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="../../tasks/part4/superheros_app.js"></script>
+    <script src="../../tasks/part4/superheros_controller.js"></script>
 
   </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+ <html lang="en" ng-app="superheroApp">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -20,65 +20,66 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="../../solutions/part0/inedx.html">Solutions</a>
+          <a class="brand" href="../../solutions/part0/inedx.html">Angular demo</a>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="SuperherosController">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header"></li>
-              <li class="active"><a href="../../solutions/part0/index.html">Part 0</a></li>
+              <li><a href="../../solutions/part0/index.html">Part 0</a></li>
               <li><a href="../../solutions/part1/index.html">Part 1</a></li>
               <li><a href="../../solutions/part2/index.html">Part 2</a></li>
-              <li><a href="../../solutions/part3/index.html">Part 3</a></li>
+              <li class="active"><a href="../../solutions/part3/index.html">Part 3</a></li>
               <li><a href="../../solutions/part4/index.html">Part 4</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
           <div class="hero-unit">
-            <h1> ngApp, ngModel, ngBind</h1>
+            <h1> ngApp, angularUI, ngClick, ngIf </h1>
             <br/>
             <ol>
-              <li>Add missing code to enable angular on this page. You should see pictures of a superheros</li>
-              <li>Display the value of text input in 'greeting' header. </li>
+              <li>Add 'ui.bootstrap' to superheroApp</li>
+              <li>Make sure we only display image when hero.image is present</li>
+              <li>Run 'showBigImage' on click</li>
             </ol><!--/ol-->
             <div>
-              <input ng-model='name' type="text" placeholder="Enter a name here"/>
-              <h2 id="greeting">
-                Hello
-                <span ng-bind='name'></span>
-              </h2><!--/h2-->
-            </div> <!--/div-->
+              <form ng-submit="addNewHero()">
+                <input type="text" ng-model="newHero.name" required placeholder="Enter name" /><br/>
+                <input type="text" ng-model="newHero.superpower" required placeholder="Enter superpower" /><br/>
+                <input type="submit" value="Add new hero"/>
+              </form>
+            <div>
           </div><!--/row-->
           <div class="row-fluid">
-            <div class="span4">
-              <h2>Batman</h2>
-              <img ng-src="../../assets/images/batman.jpg" alt="batman"/>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Spiderman</h2>
-              <img ng-src="../../assets/images/spiderman.jpg" alt="spiderman"/>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Superman</h2>
-              <img ng-src="../../assets/images/superman.jpg" alt="suparman"/>
+            <div class="span3" ng-repeat='hero in superheros'>
+              <h2 ng-bind='hero.name'></h2>
+              <div ng-if='hero.image'>
+                <a ng-click='showBigImage(hero)'>
+                  <img ng-src="{{ hero.image }}" alt="{{ hero.name }}" />
+                 </a>
+               </div>
+              <p>Super power:</p>
+              <p ng-bind='hero.superpower'></p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
-
       <hr>
-
     </div><!--/.fluid-container-->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../assets/js/angular.min.js"></script>
+    <script src="../../assets/js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="../../solutions/part3/superheros_app.js"></script>
+    <script src="../../solutions/part3/superheros_controller.js"></script>
+
   </body>
 </html>

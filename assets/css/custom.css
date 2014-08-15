@@ -16,3 +16,7 @@ body {
 }
 /* for angular.js UI */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.hero-unit {
+ padding: 20px !important;
+}
