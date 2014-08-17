@@ -4,7 +4,7 @@ superheroApp.controller('SuperherosController', function($scope, $modal) {
   $scope.superheros = [
     { name: "Batman", image: "../../assets/images/batman.jpg", superpower: "batmobile" },
     { name: "Spiderman", image: "../../assets/images/spiderman.jpg", superpower: "spider's power" },
-    { name: "Batman", image: "../../assets/images/superman.jpg", superpower: "flying and super-strength" },
+    { name: "Superman", image: "../../assets/images/superman.jpg", superpower: "flying and super-strength" },
     { name: "Catwoman", image: "../../assets/images/catwoman.jpg", superpower: "cat's powers" }
     /* SOMETHING IS MISSING HERE */
   ];
